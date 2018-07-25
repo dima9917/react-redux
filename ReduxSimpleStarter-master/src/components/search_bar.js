@@ -4,8 +4,12 @@ import React, {Component} from 'react';
 
 //class based component
 class SearchBar extends Component {
+    constructor(props){
+        super(props); //call Component construcor like base() in C# 
+        this.state = { term: '' };
+    }
     render() {
-        // return <input onChange={this.onInputChange} />;
+        //return <input onChange={this.onInputChange} />;
         //single line don't need (event)
         return <input onChange={event => console.log(event.target.value)} />;
     }
@@ -22,3 +26,7 @@ class SearchBar extends Component {
 
 
 export default SearchBar;
+
+//state is a plain javascript object that is used to record and react to user events
+//each class based component has it's own state object
+//whenever a component's state is changed, the component immideately re-renderes and forces it's children to re-render as well
