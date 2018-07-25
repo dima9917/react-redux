@@ -12,8 +12,11 @@ class SearchBar extends Component {
         //return <input onChange={this.onInputChange} />;
         //single line don't need (event)
         return (
-            <div>
-                <input onChange={event => this.setState({term:event.target.value})} />;
+            <div>                
+                <input 
+                value = {this.state.term}
+                onChange={event => this.setState({term:event.target.value})} />
+
                 Value of the input: {this.state.term};
             </div>
         )
@@ -35,3 +38,5 @@ export default SearchBar;
 //state is a plain javascript object that is used to record and react to user events
 //each class based component has it's own state object
 //whenever a component's state is changed, the component immideately re-renderes and forces it's children to re-render as well
+
+//Contolled component only has it's value set by state
