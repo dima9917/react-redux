@@ -5,8 +5,9 @@ class PostsNew extends Component {
   renderField(field) {
     return (
       <div className="form-group">
-      <label>{field.label}</label>
+        <label>{field.label}</label>
         <input className="form-control" type="text" {...field.input} />
+        {field.meta.error}
       </div>
     );
   }
@@ -15,9 +16,16 @@ class PostsNew extends Component {
     return (
       <form>
         <Field label="Title" name="title" component={this.renderField} />
-        <Field label="Categories" name="categories" component={this.renderField} />
-        <Field label="Post Content" name="content" component={this.renderField} />
-
+        <Field
+          label="Categories"
+          name="categories"
+          component={this.renderField}
+        />
+        <Field
+          label="Post Content"
+          name="content"
+          component={this.renderField}
+        />
       </form>
     );
   }
@@ -26,15 +34,15 @@ class PostsNew extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.title){
+  if (!values.title) {
     errors.title = "Enter a title!";
   }
 
-  if(!values.categories){
+  if (!values.categories) {
     errors.title = "Enter some categories!";
   }
 
-  if(!values.content){
+  if (!values.content) {
     errors.title = "Enter some content please";
   }
 
