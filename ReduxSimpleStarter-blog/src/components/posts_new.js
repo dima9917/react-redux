@@ -7,7 +7,7 @@ class PostsNew extends Component {
       <div className="form-group">
         <label>{field.label}</label>
         <input className="form-control" type="text" {...field.input} />
-        {field.meta.error}
+        {field.meta.touched ? field.meta.error : ''}
       </div>
     );
   }
@@ -45,11 +45,11 @@ function validate(values) {
   }
 
   if (!values.categories) {
-    errors.title = "Enter some categories!";
+    errors.categories = "Enter some categories!";
   }
 
   if (!values.content) {
-    errors.title = "Enter some content please";
+    errors.content = "Enter some content please";
   }
 
   return errors;
